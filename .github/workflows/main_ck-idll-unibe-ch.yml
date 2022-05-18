@@ -71,3 +71,21 @@ jobs:
           app-name: 'ck-idll-unibe-ch'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A21FC752BE4C46848FE7B1B090C2CE05 }}
+
+on:
+  pull:
+    branches:
+      - main
+  workflow_dispatch:
+
+  jobs:
+    deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material
+      - run: pip install mkdocs-git-revision-date-plugin
+      - run: mkdocs gh-deploy --force
