@@ -32,7 +32,7 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install mkdocs-git-revision-date-plugin
-          mkdocs build --force
+          mkdocs build 
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
