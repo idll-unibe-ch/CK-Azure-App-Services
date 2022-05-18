@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - develop
   workflow_dispatch:
 
 jobs:
@@ -73,9 +74,10 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A21FC752BE4C46848FE7B1B090C2CE05 }}
 
 on:
-  pull:
+  pull_request:
     branches:
       - main
+      - develop
   workflow_dispatch:
 
   jobs:
